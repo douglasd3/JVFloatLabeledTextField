@@ -32,6 +32,7 @@
 		7F9AB497183B2EBF00694AB0 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AB496183B2EBF00694AB0 /* JVFloatLabeledTextView.m */; };
 		7FF4DB94180B865F008527BD /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4DB93180B865F008527BD /* JVFloatLabeledTextField.m */; };
 		A5493E7C1C6CE56F00E04B5D /* VMaskEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = A5493E7B1C6CE56F00E04B5D /* VMaskEditor.m */; };
+		A5493E821C6CF5D100E04B5D /* VMaskTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A5493E811C6CF5D100E04B5D /* VMaskTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		7FF4DB93180B865F008527BD /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
 		A5493E7A1C6CE56F00E04B5D /* VMaskEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMaskEditor.h; sourceTree = "<group>"; };
 		A5493E7B1C6CE56F00E04B5D /* VMaskEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMaskEditor.m; sourceTree = "<group>"; };
+		A5493E801C6CF5D100E04B5D /* VMaskTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMaskTextField.h; sourceTree = "<group>"; };
+		A5493E811C6CF5D100E04B5D /* VMaskTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMaskTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,8 +219,7 @@
 		7FF4DB91180B865F008527BD /* JVFloatLabeledTextField */ = {
 			isa = PBXGroup;
 			children = (
-				A5493E7A1C6CE56F00E04B5D /* VMaskEditor.h */,
-				A5493E7B1C6CE56F00E04B5D /* VMaskEditor.m */,
+				A5493E831C6CF5DD00E04B5D /* VMaskTextField */,
 				7FF4DB92180B865F008527BD /* JVFloatLabeledTextField.h */,
 				7FF4DB93180B865F008527BD /* JVFloatLabeledTextField.m */,
 				7F9AB495183B2EBF00694AB0 /* JVFloatLabeledTextView.h */,
@@ -226,6 +228,17 @@
 				4306C37319531E7000CC0A4C /* NSString+TextDirectionality.m */,
 			);
 			path = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
+		A5493E831C6CF5DD00E04B5D /* VMaskTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A5493E801C6CF5D100E04B5D /* VMaskTextField.h */,
+				A5493E811C6CF5D100E04B5D /* VMaskTextField.m */,
+				A5493E7A1C6CE56F00E04B5D /* VMaskEditor.h */,
+				A5493E7B1C6CE56F00E04B5D /* VMaskEditor.m */,
+			);
+			name = VMaskTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +408,7 @@
 				4306C37419531E7000CC0A4C /* NSString+TextDirectionality.m in Sources */,
 				7F50336A17FA7B0A0026FB7F /* JVAppDelegate.m in Sources */,
 				7F50336617FA7B0A0026FB7F /* main.m in Sources */,
+				A5493E821C6CF5D100E04B5D /* VMaskTextField.m in Sources */,
 				7F9AB497183B2EBF00694AB0 /* JVFloatLabeledTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

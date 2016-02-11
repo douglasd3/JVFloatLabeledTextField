@@ -27,9 +27,11 @@
 
 #import "JVFloatLabeledTextField.h"
 #import "NSString+TextDirectionality.h"
+#import "VMaskEditor.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
+NSString * kVMaskTextFieldDefaultChar = @"#";
 
 @implementation JVFloatLabeledTextField
 {
@@ -41,6 +43,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     self = [super initWithFrame:frame];
     if (self) {
         [self commonInit];
+        
     }
     return self;
 }
@@ -72,6 +75,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
 
     _adjustsClearButtonRect = YES;
     _isFloatingLabelFontDefault = YES;
+    
+    self.defaultCharMask = kVMaskTextFieldDefaultChar;
 }
 
 #pragma mark -
@@ -338,6 +343,46 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
     else {
         [self showFloatingLabel:firstResponder];
     }
+}
+
+-(void) setTextWithMask:(NSString *) text{
+    NSAssert(_mask!=nil, @"Mask is nil.");
+    for (int i = 0; i < text.length; i++) {
+        if (self.text.length == _mask.length) {
+            break;
+        }
+        [self shouldChangeCharactersInRange:NSMakeRange(i, 0) replacementString:[NSString stringWithFormat:@"%c",[text characterAtIndex:i]]];
+    }
+}
+
+- (BOOL)shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (self.disallowEditingBetweenCharacters) {
+        NSInteger minimanAllowedLocation = self.text.length - 1;
+        NSInteger editionLocation = range.location;
+        if (editionLocation < minimanAllowedLocation) {
+            [self resignFirstResponder]; // Do a trick with first responded to move
+            [self becomeFirstResponder]; // cursor to the end of text field
+            return NO;
+        }
+    }
+    return [VMaskEditor shouldChangeCharactersInRange:range replacementString:string textField:self mask:_mask];
+}
+
+-(double) rawToDouble{
+    return [_raw doubleValue];
+}
+
+-(float) rawToFloat{
+    return [_raw floatValue];
+}
+
+-(NSInteger) rawToInteger{
+    return [_raw intValue];
+}
+
+-(NSDate *)rawToDate:(NSDateFormatter *)formatter{
+    NSDate *date = [formatter dateFromString:_raw];
+    return date;
 }
 
 @end

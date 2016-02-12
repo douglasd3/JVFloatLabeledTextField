@@ -65,16 +65,16 @@
     }
     if (needAppend) {
         [returnText appendString:string];
+        
+        if (jvTextField.raw) {
+            jvTextField.raw = [NSString stringWithFormat:@"%@%@", jvTextField.raw, string];
+        }
+        else {
+            jvTextField.raw = string;
+        }
     }
     textField.text = returnText;
-    
-    if (jvTextField.raw) {
-        jvTextField.raw = [NSString stringWithFormat:@"%@%@", jvTextField.raw, string];
-    }
-    else {
-        jvTextField.raw = string;
-    }
-    
+        
     return NO;
 }
 

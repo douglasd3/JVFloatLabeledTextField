@@ -9,7 +9,7 @@
 #import "JVMaskEditor.h"
 #import "JVFloatLabeledTextField.h"
 
-@implementation VMaskEditor
+@implementation JVMaskEditor
 
 +(BOOL)shouldChangeCharactersInRange:(NSRange)range
                    replacementString:(NSString *)string

@@ -7,6 +7,7 @@
 //
 
 #import "VMaskEditor.h"
+#import "JVFloatLabeledTextField.h"
 
 @implementation VMaskEditor
 
@@ -15,8 +16,11 @@
                            textField:(UITextField *)textField
                                 mask:(NSString *)mask{
     
+    JVFloatLabeledTextField *jvTextField = (JVFloatLabeledTextField *)textField;
+    
     NSString * currentTextDigited = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if (string.length == 0) {
+        jvTextField.raw = [jvTextField.raw substringToIndex:[jvTextField.raw length] - 1];
         unichar lastCharDeleted = 0;
         while (currentTextDigited.length > 0 && !isnumber([currentTextDigited characterAtIndex:currentTextDigited.length-1])) {
             lastCharDeleted = [currentTextDigited characterAtIndex:[currentTextDigited length] - 1];
@@ -63,6 +67,14 @@
         [returnText appendString:string];
     }
     textField.text = returnText;
+    
+    if (jvTextField.raw) {
+        jvTextField.raw = [NSString stringWithFormat:@"%@%@", jvTextField.raw, string];
+    }
+    else {
+        jvTextField.raw = string;
+    }
+    
     return NO;
 }
 

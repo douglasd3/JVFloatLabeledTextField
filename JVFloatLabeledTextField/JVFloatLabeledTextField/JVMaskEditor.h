@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface VMaskEditor : NSObject
+@interface JVMaskEditor : NSObject
 
 +(BOOL)shouldChangeCharactersInRange:(NSRange)range
                    replacementString:(NSString *)string

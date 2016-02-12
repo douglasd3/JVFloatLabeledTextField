@@ -6,7 +6,7 @@
 //
 //
 
-#import "VMaskEditor.h"
+#import "JVMaskEditor.h"
 #import "JVFloatLabeledTextField.h"
 
 @implementation VMaskEditor

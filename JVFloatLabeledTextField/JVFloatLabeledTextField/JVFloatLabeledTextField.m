@@ -27,7 +27,7 @@
 
 #import "JVFloatLabeledTextField.h"
 #import "NSString+TextDirectionality.h"
-#import "VMaskEditor.h"
+#import "JVMaskEditor.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.3f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.3f;
@@ -365,7 +365,7 @@ NSString * kVMaskTextFieldDefaultChar = @"#";
             return NO;
         }
     }
-    return [VMaskEditor shouldChangeCharactersInRange:range replacementString:string textField:self mask:_mask];
+    return [JVMaskEditor shouldChangeCharactersInRange:range replacementString:string textField:self mask:_mask];
 }
 
 -(double) rawToDouble{
